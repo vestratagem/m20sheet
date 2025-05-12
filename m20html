@@ -21,412 +21,115 @@
 	</label>
 </div>
 
-<div class="options">
-	<div class="rolls">
-		<div>
-			<div>
-				<button type="roll" name="roll_AreteRollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=?{Description|Magick}}} {{name=@{nameArete}}} {{Successes=[[ (@{Arete}+?{DP Mod|0}-@{health})d10s>?{Difficulty|6}f1 ]] }}  @{Explosive} {{attribute=[[@{Arete}]]}}"><span name="attr_nameArete">Arete</span></button>
-			</div>
-			<div>
-				<button type="roll" name="roll_WillRollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=?{Description}}} {{name=^{willpower}}} {{Successes=[[ (@{Willpower}+?{DP Mod|0}-@{health})d10s>?{Difficulty|6}f1 ]] }}  @{Explosive} {{attribute=[[@{Willpower}]]}}"><span data-i18n="willpower">Willpower</span></button>
-			</div>
-			<div>
-				<button type="roll" name="roll_DamRoll" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=?{Description}}} {{name=^{damage}}} {{Successes=[[ ?{Number of Dice|1}d10s>6 ]] }}"><span data-i18n="damage">Damage</span></button>
-			</div>
-			<div>
-				<button type="roll" name="roll_SoakRoll" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=?{Description}}} {{name=^{soak}}} {{Successes=[[ (@{Stamina}+?{DP Mod|0}-@{health})d10s>6 ]]}}  @{Explosive} {{attribute=[[@{Stamina}]]}}"><span data-i18n="soak">Soak</span></button>
-			</div>
-		</div>
-		<div>
-			<div>
-				<input type="hidden" name="attr_expandDP1RollTop" />
-				<div>
-					<label>
-						<input type="checkbox" name="attr_expandDP1RollTop" value="1" />
-						<span></span>
-					</label>
-					<button type="roll" name="roll_DP1RollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=@{DP1Name}}} {{name=?{Description|Action}}} {{Successes=[[(@{DPAtt1}+@{DPAbi1}+?{DP Mod|0}-@{health})d10s>?{Difficulty|6}f1]]}} @{Explosive} {{attribute=[[@{DPAtt1}]]}} {{abilities=[[@{DPAbi1}]]}}"><span name="attr_DP1Name">Die Pool 1</span></button>
-				</div>
-				<div class="expand">
-					<input type="text" name="attr_DP1Name" value="Die Pool 1" />
-					<h1 data-i18n="attribute">Attribute</h1>
-					<select name="attr_DPAtt1">
-                        <option value="0" selected></option>
-                        <option value="@{Appearance}" data-i18n="appearance">Appearance</option>
-                        <option value="@{Charisma}" data-i18n="charisma">Charisma</option>
-                        <option value="@{Dexterity}" data-i18n="dexterity">Dexterity</option>
-                        <option value="@{Intelligence}" data-i18n="intelligence">Intelligence</option>
-                        <option value="@{Manipulation}" data-i18n="manipulation">Manipulation</option>
-                        <option value="@{Perception}" data-i18n="perception">Perception</option>
-                        <option value="@{Stamina}" data-i18n="stamina">Stamina</option>
-                        <option value="@{Strength}" data-i18n="strength">Strength</option>
-                        <option value="@{Wits}" data-i18n="wits">Wits</option>
-                    </select>
-					<h1 data-i18n="abilities">Abilities</h1>
-                    <select name="attr_DPAbi1">
-                        <option value="0" selected></option>
-						<optgroup label="Talents">
-							<option value="@{Alertness}" data-i18n="alertness">Alertness</option>
-							<option value="@{Art}" data-i18n="art">Art</option>
-							<option value="@{Athletics}" data-i18n="athletics">Athletics</option>
-							<option value="@{Awareness}" data-i18n="awareness">Awareness</option>
-							<option value="@{Brawl}" data-i18n="brawl">Brawl</option>
-							<option value="@{Empathy}" data-i18n="empathy">Empathy</option>
-							<option value="@{Expression}" data-i18n="expression">Expression</option>
-							<option value="@{Intimidation}" data-i18n="intimidation">Intimidation</option>
-							<option value="@{Leadership}" data-i18n="leadership">Leadership</option>
-							<option value="@{Streetwise}" data-i18n="streetwise">Streetwise</option>
-							<option value="@{Subterfuge}" data-i18n="subterfuge">Subterfuge</option>
-							<option value="@{Abi1}" data-i18n="extra-ability-1">Extra Ability 1</option>
-							<option value="@{Abi2}" data-i18n="extra-ability-1">Extra Ability 2</option>
-						</optgroup>
-						<optgroup label="Skills">
-							<option value="@{Crafts}" data-i18n="crafts">Crafts</option>
-							<option value="@{Drive}" data-i18n="drive">Drive</option>
-							<option value="@{Etiquette}" data-i18n="etiquette">Etiquette</option>
-							<option value="@{Firearms}" data-i18n="firearms">Firearms</option>
-							<option value="@{MartialArts}" data-i18n="martial-arts">Martial Arts</option>
-							<option value="@{Meditation}" data-i18n="meditation">Meditation</option>
-							<option value="@{Melee}" data-i18n="melee">Melee</option>
-							<option value="@{Research}" data-i18n="research">Research</option>
-							<option value="@{Stealth}" data-i18n="stealth">Stealth</option>
-							<option value="@{Survival}" data-i18n="survival">Survival</option>
-							<option value="@{Abi3}" data-i18n="extra-skill-1">Extra Skill 1</option>
-							<option value="@{Abi4}" data-i18n="extra-skill-2">Extra Skill 2</option>
-						</optgroup>
-						<optgroup label="Knowledges">
-							<option value="@{Academics}" data-i18n="academics">Academics</option>
-							<option value="@{Computer}" data-i18n="computer">Computer</option>
-							<option value="@{Cosmology}" data-i18n="cosmology">Cosmology</option>
-							<option value="@{Enigmas}" data-i18n="enigmas">Enigmas</option>
-							<option value="@{Esoterica}" data-i18n="esoterica">Esoterica</option>
-							<option value="@{Investigation}" data-i18n="investigation">Investigation</option>
-							<option value="@{Law}" data-i18n="law">Law</option>
-							<option value="@{Medicine}" data-i18n="medicine">Medicine</option>
-							<option value="@{Occult}" data-i18n="occult">Occult</option>
-							<option value="@{Politics}" data-i18n="politics">Politics</option>
-							<option value="@{Science}" data-i18n="science">Science</option>
-							<option value="@{Technology}" data-i18n="technology">Technology</option>
-							<option value="@{Abi5}" data-i18n="extra-knowledge-1">Extra Knowledge 1</option>
-							<option value="@{Abi6}" data-i18n="extra-knowledge-2">Extra Knowledge 2</option>
-						</optgroup>
-                    </select>
-				</div>
-			</div>
-			<div>
-				<input type="hidden" name="attr_expandDP2RollTop" />
-				<div>
-					<label>
-						<input type="checkbox" name="attr_expandDP2RollTop" value="1" />
-						<span></span>
-					</label>
-					<button type="roll" name="roll_DP2RollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=@{DP2Name}}} {{name=?{Description|Action}}} {{Successes=[[ (@{DPAtt2}+@{DPAbi2}+?{DP Mod|0}-@{health})d10s>?{Difficulty|6}f1 ]] }} @{Explosive} {{attribute=[[@{DPAtt2}]]}} {{abilities=[[@{DPAbi2}]]}}"><span name="attr_DP2Name">Die Pool 2</span></button>
-				</div>
-				<div class="expand">
-					<input type="text" name="attr_DP2Name" value="Die Pool 2" />
-					<h1>Attribute</h1>
-					<select name="attr_DPAtt2">
-                        <option value="0" selected></option>
-                        <option value="@{Appearance}" data-i18n="appearance">Appearance</option>
-                        <option value="@{Charisma}" data-i18n="charisma">Charisma</option>
-                        <option value="@{Dexterity}" data-i18n="dexterity">Dexterity</option>
-                        <option value="@{Intelligence}" data-i18n="intelligence">Intelligence</option>
-                        <option value="@{Manipulation}" data-i18n="manipulation">Manipulation</option>
-                        <option value="@{Perception}" data-i18n="perception">Perception</option>
-                        <option value="@{Stamina}" data-i18n="stamina">Stamina</option>
-                        <option value="@{Strength}" data-i18n="strength">Strength</option>
-                        <option value="@{Wits}" data-i18n="wits">Wits</option>
-                    </select>
-                    <h1>Abilities</h1>
-					<select name="attr_DPAbi2">
-                        <optgroup label="Talents" data-i18nlabel="talents">
-							<option value="@{Alertness}" data-i18n="alertness">Alertness</option>
-							<option value="@{Art}" data-i18n="art">Art</option>
-							<option value="@{Athletics}" data-i18n="athletics">Athletics</option>
-							<option value="@{Awareness}" data-i18n="awareness">Awareness</option>
-							<option value="@{Brawl}" data-i18n="brawl">Brawl</option>
-							<option value="@{Empathy}" data-i18n="empathy">Empathy</option>
-							<option value="@{Expression}" data-i18n="expression">Expression</option>
-							<option value="@{Intimidation}" data-i18n="intimidation">Intimidation</option>
-							<option value="@{Leadership}" data-i18n="leadership">Leadership</option>
-							<option value="@{Streetwise}" data-i18n="streetwise">Streetwise</option>
-							<option value="@{Subterfuge}" data-i18n="subterfuge">Subterfuge</option>
-							<option value="@{Abi1}" data-i18n="extra-ability-1">Extra Ability 1</option>
-							<option value="@{Abi2}" data-i18n="extra-ability-1">Extra Ability 2</option>
-						</optgroup>
-						<optgroup label="Skills" data-i18nlabel="skills">
-							<option value="@{Crafts}" data-i18n="crafts">Crafts</option>
-							<option value="@{Drive}" data-i18n="drive">Drive</option>
-							<option value="@{Etiquette}" data-i18n="etiquette">Etiquette</option>
-							<option value="@{Firearms}" data-i18n="firearms">Firearms</option>
-							<option value="@{MartialArts}" data-i18n="martial-arts">Martial Arts</option>
-							<option value="@{Meditation}" data-i18n="meditation">Meditation</option>
-							<option value="@{Melee}" data-i18n="melee">Melee</option>
-							<option value="@{Research}" data-i18n="research">Research</option>
-							<option value="@{Stealth}" data-i18n="stealth">Stealth</option>
-							<option value="@{Survival}" data-i18n="survival">Survival</option>
-							<option value="@{Abi3}" data-i18n="extra-skill-1">Extra Skill 1</option>
-							<option value="@{Abi4}" data-i18n="extra-skill-2">Extra Skill 2</option>
-						</optgroup>
-						<optgroup label="Knowledges" data-i18nlabel="knowledges">
-							<option value="@{Academics}" data-i18n="academics">Academics</option>
-							<option value="@{Computer}" data-i18n="computer">Computer</option>
-							<option value="@{Cosmology}" data-i18n="cosmology">Cosmology</option>
-							<option value="@{Enigmas}" data-i18n="enigmas">Enigmas</option>
-							<option value="@{Esoterica}" data-i18n="esoterica">Esoterica</option>
-							<option value="@{Investigation}" data-i18n="investigation">Investigation</option>
-							<option value="@{Law}" data-i18n="law">Law</option>
-							<option value="@{Medicine}" data-i18n="medicine">Medicine</option>
-							<option value="@{Occult}" data-i18n="occult">Occult</option>
-							<option value="@{Politics}" data-i18n="politics">Politics</option>
-							<option value="@{Science}" data-i18n="science">Science</option>
-							<option value="@{Technology}" data-i18n="technology">Technology</option>
-							<option value="@{Abi5}" data-i18n="extra-knowledge-1">Extra Knowledge 1</option>
-							<option value="@{Abi6}" data-i18n="extra-knowledge-2">Extra Knowledge 2</option>
-						</optgroup>
-                    </select>
-				</div>
-			</div>
-			<div>
-				<input type="hidden" name="attr_expandDP3RollTop" />
-				<div>
-					<label>
-						<input type="checkbox" name="attr_expandDP3RollTop" value="1" />
-						<span></span>
-					</label>
-					<button type="roll" name="roll_DP3RollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=@{DP3Name}}} {{name=?{Description|Action}}} {{Successes=[[ (@{DPAtt3}+@{DPAbi3}+?{DP Mod|0}-@{health})d10s>?{Difficulty|6}f1 ]] }} @{Explosive} {{attribute=[[@{DPAtt3}]]}} {{abilities=[[@{DPAbi3}]]}}"><span name="attr_DP3Name">Die Pool 3</span></button>
-				</div>
-				<div class="expand">
-					<input type="text" name="attr_DP3Name" value="Die Pool 3" />
-					<h1>Attribute</h1>
-					<select name="attr_DPAtt3">
-                       <option value="0" selected></option>
-                        <option value="@{Appearance}" data-i18n="appearance">Appearance</option>
-                        <option value="@{Charisma}" data-i18n="charisma">Charisma</option>
-                        <option value="@{Dexterity}" data-i18n="dexterity">Dexterity</option>
-                        <option value="@{Intelligence}" data-i18n="intelligence">Intelligence</option>
-                        <option value="@{Manipulation}" data-i18n="manipulation">Manipulation</option>
-                        <option value="@{Perception}" data-i18n="perception">Perception</option>
-                        <option value="@{Stamina}" data-i18n="stamina">Stamina</option>
-                        <option value="@{Strength}" data-i18n="strength">Strength</option>
-                        <option value="@{Wits}" data-i18n="wits">Wits</option>
-                    </select>
-                    <h1>Abilities</h1>
-					<select name="attr_DPAbi3">
-                       <optgroup label="Talents" data-i18nlabel="talents">
-							<option value="@{Alertness}" data-i18n="alertness">Alertness</option>
-							<option value="@{Art}" data-i18n="art">Art</option>
-							<option value="@{Athletics}" data-i18n="athletics">Athletics</option>
-							<option value="@{Awareness}" data-i18n="awareness">Awareness</option>
-							<option value="@{Brawl}" data-i18n="brawl">Brawl</option>
-							<option value="@{Empathy}" data-i18n="empathy">Empathy</option>
-							<option value="@{Expression}" data-i18n="expression">Expression</option>
-							<option value="@{Intimidation}" data-i18n="intimidation">Intimidation</option>
-							<option value="@{Leadership}" data-i18n="leadership">Leadership</option>
-							<option value="@{Streetwise}" data-i18n="streetwise">Streetwise</option>
-							<option value="@{Subterfuge}" data-i18n="subterfuge">Subterfuge</option>
-							<option value="@{Abi1}" data-i18n="extra-ability-1">Extra Ability 1</option>
-							<option value="@{Abi2}" data-i18n="extra-ability-1">Extra Ability 2</option>
-						</optgroup>
-						<optgroup label="Skills" data-i18nlabel="skills">
-							<option value="@{Crafts}" data-i18n="crafts">Crafts</option>
-							<option value="@{Drive}" data-i18n="drive">Drive</option>
-							<option value="@{Etiquette}" data-i18n="etiquette">Etiquette</option>
-							<option value="@{Firearms}" data-i18n="firearms">Firearms</option>
-							<option value="@{MartialArts}" data-i18n="martial-arts">Martial Arts</option>
-							<option value="@{Meditation}" data-i18n="meditation">Meditation</option>
-							<option value="@{Melee}" data-i18n="melee">Melee</option>
-							<option value="@{Research}" data-i18n="research">Research</option>
-							<option value="@{Stealth}" data-i18n="stealth">Stealth</option>
-							<option value="@{Survival}" data-i18n="survival">Survival</option>
-							<option value="@{Abi3}" data-i18n="extra-skill-1">Extra Skill 1</option>
-							<option value="@{Abi4}" data-i18n="extra-skill-2">Extra Skill 2</option>
-						</optgroup>
-						<optgroup label="Knowledges" data-i18nlabel="knowledges">
-							<option value="@{Academics}" data-i18n="academics">Academics</option>
-							<option value="@{Computer}" data-i18n="computer">Computer</option>
-							<option value="@{Cosmology}" data-i18n="cosmology">Cosmology</option>
-							<option value="@{Enigmas}" data-i18n="enigmas">Enigmas</option>
-							<option value="@{Esoterica}" data-i18n="esoterica">Esoterica</option>
-							<option value="@{Investigation}" data-i18n="investigation">Investigation</option>
-							<option value="@{Law}" data-i18n="law">Law</option>
-							<option value="@{Medicine}" data-i18n="medicine">Medicine</option>
-							<option value="@{Occult}" data-i18n="occult">Occult</option>
-							<option value="@{Politics}" data-i18n="politics">Politics</option>
-							<option value="@{Science}" data-i18n="science">Science</option>
-							<option value="@{Technology}" data-i18n="technology">Technology</option>
-							<option value="@{Abi5}" data-i18n="extra-knowledge-1">Extra Knowledge 1</option>
-							<option value="@{Abi6}" data-i18n="extra-knowledge-2">Extra Knowledge 2</option>
-						</optgroup>
-                    </select>
-				</div>
-			</div>
-			<div>
-				<input type="hidden" name="attr_expandDP4RollTop" />
-				<div>
-					<label>
-						<input type="checkbox" name="attr_expandDP4RollTop" value="1" />
-						<span></span>
-					</label>
-					<button type="roll" name="roll_DP4RollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=@{DP4Name}}} {{name=?{Description|Action}}} {{Successes=[[ (@{DPAtt4}+@{DPAbi4}+?{DP Mod|0}-@{health})d10s>?{Difficulty|6}f1 ]] }} @{Explosive} {{attribute=[[@{DPAtt4}]]}} {{abilities=[[@{DPAbi4}]]}}"><span name="attr_DP4Name">Die Pool 4</span></button>
-				</div>
-				<div class="expand">
-					<input type="text" name="attr_DP4Name" value="Die Pool 4" />
-					<h1>Attribute</h1>
-					<select name="attr_DPAtt4">
-                        <option value="0" selected></option>
-                        <option value="@{Appearance}" data-i18n="appearance">Appearance</option>
-                        <option value="@{Charisma}" data-i18n="charisma">Charisma</option>
-                        <option value="@{Dexterity}" data-i18n="dexterity">Dexterity</option>
-                        <option value="@{Intelligence}" data-i18n="intelligence">Intelligence</option>
-                        <option value="@{Manipulation}" data-i18n="manipulation">Manipulation</option>
-                        <option value="@{Perception}" data-i18n="perception">Perception</option>
-                        <option value="@{Stamina}" data-i18n="stamina">Stamina</option>
-                        <option value="@{Strength}" data-i18n="strength">Strength</option>
-                        <option value="@{Wits}" data-i18n="wits">Wits</option>
-                    </select>
-                    <h1>Abilities</h1>
-					<select name="attr_DPAbi4">
-                        <optgroup label="Talents" data-i18nlabel="talents">
-							<option value="@{Alertness}" data-i18n="alertness">Alertness</option>
-							<option value="@{Art}" data-i18n="art">Art</option>
-							<option value="@{Athletics}" data-i18n="athletics">Athletics</option>
-							<option value="@{Awareness}" data-i18n="awareness">Awareness</option>
-							<option value="@{Brawl}" data-i18n="brawl">Brawl</option>
-							<option value="@{Empathy}" data-i18n="empathy">Empathy</option>
-							<option value="@{Expression}" data-i18n="expression">Expression</option>
-							<option value="@{Intimidation}" data-i18n="intimidation">Intimidation</option>
-							<option value="@{Leadership}" data-i18n="leadership">Leadership</option>
-							<option value="@{Streetwise}" data-i18n="streetwise">Streetwise</option>
-							<option value="@{Subterfuge}" data-i18n="subterfuge">Subterfuge</option>
-							<option value="@{Abi1}" data-i18n="extra-ability-1">Extra Ability 1</option>
-							<option value="@{Abi2}" data-i18n="extra-ability-1">Extra Ability 2</option>
-						</optgroup>
-						<optgroup label="Skills" data-i18nlabel="skills">
-							<option value="@{Crafts}" data-i18n="crafts">Crafts</option>
-							<option value="@{Drive}" data-i18n="drive">Drive</option>
-							<option value="@{Etiquette}" data-i18n="etiquette">Etiquette</option>
-							<option value="@{Firearms}" data-i18n="firearms">Firearms</option>
-							<option value="@{MartialArts}" data-i18n="martial-arts">Martial Arts</option>
-							<option value="@{Meditation}" data-i18n="meditation">Meditation</option>
-							<option value="@{Melee}" data-i18n="melee">Melee</option>
-							<option value="@{Research}" data-i18n="research">Research</option>
-							<option value="@{Stealth}" data-i18n="stealth">Stealth</option>
-							<option value="@{Survival}" data-i18n="survival">Survival</option>
-							<option value="@{Abi3}" data-i18n="extra-skill-1">Extra Skill 1</option>
-							<option value="@{Abi4}" data-i18n="extra-skill-2">Extra Skill 2</option>
-						</optgroup>
-						<optgroup label="Knowledges" data-i18nlabel="knowledges">
-							<option value="@{Academics}" data-i18n="academics">Academics</option>
-							<option value="@{Computer}" data-i18n="computer">Computer</option>
-							<option value="@{Cosmology}" data-i18n="cosmology">Cosmology</option>
-							<option value="@{Enigmas}" data-i18n="enigmas">Enigmas</option>
-							<option value="@{Esoterica}" data-i18n="esoterica">Esoterica</option>
-							<option value="@{Investigation}" data-i18n="investigation">Investigation</option>
-							<option value="@{Law}" data-i18n="law">Law</option>
-							<option value="@{Medicine}" data-i18n="medicine">Medicine</option>
-							<option value="@{Occult}" data-i18n="occult">Occult</option>
-							<option value="@{Politics}" data-i18n="politics">Politics</option>
-							<option value="@{Science}" data-i18n="science">Science</option>
-							<option value="@{Technology}" data-i18n="technology">Technology</option>
-							<option value="@{Abi5}" data-i18n="extra-knowledge-1">Extra Knowledge 1</option>
-							<option value="@{Abi6}" data-i18n="extra-knowledge-2">Extra Knowledge 2</option>
-						</optgroup>
-                    </select>
-				</div>
-			</div>
-			<div>
-				<input type="hidden" name="attr_expandDP5RollTop" />
-				<div>
-					<label>
-						<input type="checkbox" name="attr_expandDP5RollTop" value="1" />
-						<span></span>
-					</label>
-					<button type="roll" name="roll_DP5RollTop" value="@{Whisper} &{template:generic} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{subtitle=Die Pool 5}} {{name=?{Description|Action}}} {{Successes=[[ (@{DPAtt5}+@{DPAbi5}+?{DP Mod|0})d10s>?{Difficulty|6}f1 ]] }} @{Explosive} {{attribute=[[@{DPAtt5}]]}} {{abilities=[[@{DPAbi5}]]}}"><span name="attr_DP5Name">Die Pool 5</span></button>
-				</div>
-				<div class="expand">
-					<input type="text" name="attr_DP5Name" value="Die Pool 5" />
-					<h1>Attribute</h1>
-					<select name="attr_DPAtt5">
-                        <option value="0" selected></option>
-                        <option value="@{Appearance}" data-i18n="appearance">Appearance</option>
-                        <option value="@{Charisma}" data-i18n="charisma">Charisma</option>
-                        <option value="@{Dexterity}" data-i18n="dexterity">Dexterity</option>
-                        <option value="@{Intelligence}" data-i18n="intelligence">Intelligence</option>
-                        <option value="@{Manipulation}" data-i18n="manipulation">Manipulation</option>
-                        <option value="@{Perception}" data-i18n="perception">Perception</option>
-                        <option value="@{Stamina}" data-i18n="stamina">Stamina</option>
-                        <option value="@{Strength}" data-i18n="strength">Strength</option>
-                        <option value="@{Wits}" data-i18n="wits">Wits</option>
-                    </select>
-                    <h1>Abilities</h1>
-					<select name="attr_DPAbi5">
-                       <optgroup label="Talents" data-i18nlabel="talents">
-							<option value="@{Alertness}" data-i18n="alertness">Alertness</option>
-							<option value="@{Art}" data-i18n="art">Art</option>
-							<option value="@{Athletics}" data-i18n="athletics">Athletics</option>
-							<option value="@{Awareness}" data-i18n="awareness">Awareness</option>
-							<option value="@{Brawl}" data-i18n="brawl">Brawl</option>
-							<option value="@{Empathy}" data-i18n="empathy">Empathy</option>
-							<option value="@{Expression}" data-i18n="expression">Expression</option>
-							<option value="@{Intimidation}" data-i18n="intimidation">Intimidation</option>
-							<option value="@{Leadership}" data-i18n="leadership">Leadership</option>
-							<option value="@{Streetwise}" data-i18n="streetwise">Streetwise</option>
-							<option value="@{Subterfuge}" data-i18n="subterfuge">Subterfuge</option>
-							<option value="@{Abi1}" data-i18n="extra-ability-1">Extra Ability 1</option>
-							<option value="@{Abi2}" data-i18n="extra-ability-1">Extra Ability 2</option>
-						</optgroup>
-						<optgroup label="Skills" data-i18nlabel="skills">
-							<option value="@{Crafts}" data-i18n="crafts">Crafts</option>
-							<option value="@{Drive}" data-i18n="drive">Drive</option>
-							<option value="@{Etiquette}" data-i18n="etiquette">Etiquette</option>
-							<option value="@{Firearms}" data-i18n="firearms">Firearms</option>
-							<option value="@{MartialArts}" data-i18n="martial-arts">Martial Arts</option>
-							<option value="@{Meditation}" data-i18n="meditation">Meditation</option>
-							<option value="@{Melee}" data-i18n="melee">Melee</option>
-							<option value="@{Research}" data-i18n="research">Research</option>
-							<option value="@{Stealth}" data-i18n="stealth">Stealth</option>
-							<option value="@{Survival}" data-i18n="survival">Survival</option>
-							<option value="@{Abi3}" data-i18n="extra-skill-1">Extra Skill 1</option>
-							<option value="@{Abi4}" data-i18n="extra-skill-2">Extra Skill 2</option>
-						</optgroup>
-						<optgroup label="Knowledges" data-i18nlabel="knowledges">
-							<option value="@{Academics}" data-i18n="academics">Academics</option>
-							<option value="@{Computer}" data-i18n="computer">Computer</option>
-							<option value="@{Cosmology}" data-i18n="cosmology">Cosmology</option>
-							<option value="@{Enigmas}" data-i18n="enigmas">Enigmas</option>
-							<option value="@{Esoterica}" data-i18n="esoterica">Esoterica</option>
-							<option value="@{Investigation}" data-i18n="investigation">Investigation</option>
-							<option value="@{Law}" data-i18n="law">Law</option>
-							<option value="@{Medicine}" data-i18n="medicine">Medicine</option>
-							<option value="@{Occult}" data-i18n="occult">Occult</option>
-							<option value="@{Politics}" data-i18n="politics">Politics</option>
-							<option value="@{Science}" data-i18n="science">Science</option>
-							<option value="@{Technology}" data-i18n="technology">Technology</option>
-							<option value="@{Abi5}" data-i18n="extra-knowledge-1">Extra Knowledge 1</option>
-							<option value="@{Abi6}" data-i18n="extra-knowledge-2">Extra Knowledge 2</option>
-						</optgroup>
-                    </select>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="sheet-button-group">
+  <button type="roll" name="roll_arete"
+    value="&{template:m20} {{title=Arete}} {{subtitle=Sphere Casting}} {{successes=[[?{Arete Dice|@{arete}}d10>6]]}}">
+    Arete
+  </button>
 
-	<input type="hidden" name="attr_options" />
-	<div class="optionsExpand">
-		<select name="attr_Whisper">
-			<option value="&nbsp;" selected data-i18n="rolls-public">Rolls are public</option>
-			<option value="/w gm" data-i18n="Rolls-whisper">Rolls whisper to GM</option>
-		</select>
-		<select name="attr_Explosive">
-			<option value="" selected data-i18n="10 = 1 success">10 = 1 success</option>
-			<option value="{{explosive=1}}" data-i18n="10 = 2 success">10 = 2 success</option>
-		</select>
-		<select name="attr_healthBonus">
-			<option value="" selected data-i18n="no bonus health level">No bonus health level.</option>
-			<option value="1" data-i18n="add a bonus health level">Add a bonus health level.</option>
-		</select>
-	</div>
+  <button type="roll" name="roll_willpower"
+    value="&{template:m20} {{title=Willpower}} {{subtitle=Self-Control or Resolve}} {{successes=[[?{Willpower Dice|@{willpower}}d10>6]]}}">
+    Willpower
+  </button>
+
+  <button type="roll" name="roll_damage"
+    value="&{template:m20} {{title=Damage}} {{subtitle=Effect or Weapon}} {{successes=[[?{Damage Dice|3}d10>6]]}} {{notes=Damage roll. Usually lethal unless stated otherwise.}}">
+    Damage
+  </button>
+
+  <button type="roll" name="roll_soak"
+    value="&{template:m20} {{title=Soak}} {{subtitle=Stamina + 3}} {{successes=[[?{Soak Dice|@{stamina}+3}d10>6]]}} {{notes=Soak against incoming damage. Aggravated cannot be soaked unless stated.}}">
+    Soak
+  </button>
+</div>
+
+<div class="sheet-diepool-wrapper">
+
+  <!-- Toggle and Roll -->
+  <div class="sheet-diepool-header">
+    <input type="checkbox" name="attr_expandDP1RollTop" class="sheet-diepool-toggle" value="1" />
+
+    <label class="sheet-diepool-toggle-label" for="attr_expandDP1RollTop">
+      <span class="sheet-diepool-icon"></span>
+    </label>
+
+    <button type="roll" name="roll_DP1RollTop"
+      value="&{template:m20} {{title=?{Description|Action}}} {{subtitle=@{DP1Name}}} {{successes=[[(@{DPAtt1}+@{DPAbi1}+?{DP Mod|0}-@{health})d10>?{Difficulty|6}f1]]}} {{attribute=[[@{DPAtt1}]]}} {{abilities=[[@{DPAbi1}]]}}">
+      <span name="attr_DP1Name">Die Pool 1</span>
+    </button>
+  </div>
+
+  <!-- Expandable Section -->
+  <div class="expand">
+    <input type="text" name="attr_DP1Name" value="Die Pool 1" />
+
+    <h6 data-i18n="attributes">Attributes</h6>
+    <select name="attr_DPAtt1">
+      <option value="0" selected></option>
+      <option value="@{Appearance}">Appearance</option>
+      <option value="@{Charisma}">Charisma</option>
+      <option value="@{Dexterity}">Dexterity</option>
+      <option value="@{Intelligence}">Intelligence</option>
+      <option value="@{Manipulation}">Manipulation</option>
+      <option value="@{Perception}">Perception</option>
+      <option value="@{Stamina}">Stamina</option>
+      <option value="@{Strength}">Strength</option>
+      <option value="@{Wits}">Wits</option>
+    </select>
+
+    <h6 data-i18n="abilities">Abilities</h6>
+    <select name="attr_DPAbi1">
+      <option value="0" selected></option>
+
+      <optgroup label="Talents">
+        <option value="@{Alertness}">Alertness</option>
+        <option value="@{Art}">Art</option>
+        <option value="@{Athletics}">Athletics</option>
+        <option value="@{Awareness}">Awareness</option>
+        <option value="@{Brawl}">Brawl</option>
+        <option value="@{Empathy}">Empathy</option>
+        <option value="@{Expression}">Expression</option>
+        <option value="@{Intimidation}">Intimidation</option>
+        <option value="@{Leadership}">Leadership</option>
+        <option value="@{Streetwise}">Streetwise</option>
+        <option value="@{Subterfuge}">Subterfuge</option>
+        <option value="@{Abi1}">Extra Ability 1</option>
+        <option value="@{Abi2}">Extra Ability 2</option>
+      </optgroup>
+
+      <optgroup label="Skills">
+        <option value="@{Crafts}">Crafts</option>
+        <option value="@{Drive}">Drive</option>
+        <option value="@{Etiquette}">Etiquette</option>
+        <option value="@{Firearms}">Firearms</option>
+        <option value="@{MartialArts}">Martial Arts</option>
+        <option value="@{Meditation}">Meditation</option>
+        <option value="@{Melee}">Melee</option>
+        <option value="@{Research}">Research</option>
+        <option value="@{Stealth}">Stealth</option>
+        <option value="@{Survival}">Survival</option>
+        <option value="@{Abi3}">Extra Skill 1</option>
+        <option value="@{Abi4}">Extra Skill 2</option>
+      </optgroup>
+
+      <optgroup label="Knowledges">
+        <option value="@{Academics}">Academics</option>
+        <option value="@{Computer}">Computer</option>
+        <option value="@{Cosmology}">Cosmology</option>
+        <option value="@{Enigmas}">Enigmas</option>
+        <option value="@{Esoterica}">Esoterica</option>
+        <option value="@{Investigation}">Investigation</option>
+        <option value="@{Law}">Law</option>
+        <option value="@{Medicine}">Medicine</option>
+        <option value="@{Occult}">Occult</option>
+        <option value="@{Politics}">Politics</option>
+        <option value="@{Science}">Science</option>
+        <option value="@{Technology}">Technology</option>
+        <option value="@{Abi5}">Extra Knowledge 1</option>
+        <option value="@{Abi6}">Extra Knowledge 2</option>
+      </optgroup>
+    </select>
+  </div>
 </div>
 
 <input type="hidden" name="attr_health" value="0" />
@@ -4390,6 +4093,23 @@
 	});
 </script>
 
+<rolltemplate class="sheet-rolltemplate-m20">
+  <div class="sheet-template-container">
+    <div class="sheet-template-header">{{title}}</div>
+    
+    {{#subtitle}}
+      <div class="sheet-template-subheader">{{subtitle}}</div>
+    {{/subtitle}}
+    
+    {{#successes}}
+      <div class="sheet-template-row">
+        <span class="sheet-label">Successes:</span>
+        <span class="sheet-value">{{successes}}</span>
+      </div>
+    {{/successes}}
 
-
-
+    {{#notes}}
+      <div class="sheet-template-notes">{{notes}}</div>
+    {{/notes}}
+  </div>
+</rolltemplate>
