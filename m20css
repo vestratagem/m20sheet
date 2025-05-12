@@ -2529,13 +2529,3 @@ div.sheet-footer > span
 	--success-text: #b6ffb6;
 	--success-bg: #1a1a1a;
 }
-
-/* Dark/Light mode styling for "Successes" text */
-span[data-i18n="successes"] {
-    color: black !important;
-}
-
-.sheet-darkmode span[data-i18n="successes"],
-body.dark-mode span[data-i18n="successes"] {
-    color: white !important;
-}
