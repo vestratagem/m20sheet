@@ -6,6 +6,9 @@
 	--or: RGB(238, 228, 197);
 	--grey: RGB(217, 217, 217);
 	min-width:860px;
+	background-color: #F1EDF9;
+	padding: 12px;
+    border-radius: 8px;
 }
 
 .itemcontrol
@@ -2492,29 +2495,298 @@ div.sheet-footer > span
 	justify-content:center;
 }
 
-.sheet-rolltemplate-generic .inlinerollresult  
-{
-	color: #FFF;
-	background-color: #000;
-	border-color: #000;
-	min-width: 1em;
-	text-align: center;
-	display: inline-block;
-	margin-left: 1px;
-	padding:0px;
+/* Inside your custom roll template */
+.sheet-rolltemplate-m20 .inlinerollresult {
+  background-color: #111 !important;
+  color: #FFD700 !important;
+  border: 1px solid #FFD700 !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: bold;
+  font-size: 1.1em;
+  box-shadow: 0 0 4px #FFD70066;
 }
-.sheet-rolltemplate-generic .inlinerollresult.fullcrit 
-{
-	color: #FFF;
-	background-color: #3FB315;
+
+
+.sheet-rolltemplate-m20 .inlinerollresult.fullcrit {
+  background-color: #003300 !important;
+  color: #33ff99 !important;
+  border-color: #33ff99 !important;
+  box-shadow: 0 0 8px #33ff99aa;
 }
-.sheet-rolltemplate-generic .inlinerollresult.fullfail 
-{
-	color: #FFF;
-	background-color: #B31515;
+
+.sheet-rolltemplate-m20 .inlinerollresult.fullfail {
+  background-color: #330000 !important;
+  color: #ff4444 !important;
+  border-color: #ff4444 !important;
+  box-shadow: 0 0 8px #ff4444aa;
 }
+
 .sheet-rolltemplate-generic .inlinerollresult.importantroll 
 {
 	color: #FFF;
 	background-color: #4A57ED;
+}
+
+.sheet-rolltemplate-m20 .sheet-template-container {
+  background: #1e1e1e;              /* dark neutral background */
+  color: #f0f0f0;                   /* light readable text */
+  border: 2px solid #FFD700;        /* gold border */
+  border-radius: 6px;
+  padding: 10px;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.4em;
+}
+
+.sheet-rolltemplate-m20 .sheet-template-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.sheet-rolltemplate-m20 .sheet-template-subheader {
+  font-size: 0.95em;
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.sheet-rolltemplate-m20 .sheet-template-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  border-top: 1px solid #444;
+}
+
+.sheet-rolltemplate-m20 .sheet-label {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.sheet-rolltemplate-m20 .sheet-success-row {
+  background: #121212; /* always dark */
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: glowSuccess 1.5s ease-in-out infinite alternate;
+}
+
+.sheet-rolltemplate-m20 .sheet-value {
+  font-weight: normal;
+  color: #f0f0f0;
+}
+
+.sheet-rolltemplate-m20 .sheet-success-row .sheet-value {
+  color: #FFD700;
+  background: transparent;
+  text-shadow: 0 0 6px #FFD70066;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.sheet-rolltemplate-m20 .sheet-template-notes {
+  margin-top: 8px;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #aaa;
+  text-align: justify;
+}
+
+.sheet-roll-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.sheet-roll-block button[type="roll"] {
+  background: #444;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+.sheet-roll-block button[type="roll"]:hover {
+  background: #FFD700;
+  color: #1e1e1e;
+  transition: 0.2s ease-in-out;
+}
+
+/* Container for Die Pool Blocks */
+.sheet-roll-block,
+.expand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* Dropdown Styling */
+.sheet-roll-block select,
+.expand select {
+  background-color: #111;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: bold;
+  font-family: "Segoe UI", sans-serif;
+  appearance: none;
+  cursor: pointer;
+}
+
+.sheet-roll-block select:focus,
+.expand select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #FFD70066;
+}
+
+/* Text Input for Die Pool Label */
+.expand input[type="text"][name^="attr_DP1Name"] {
+  background: #1e1e1e;
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  font-family: "Segoe UI", serif;
+  padding: 4px;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+/* Gold-Black Styled Roll Button */
+.sheet-roll-block button[type="roll"],
+.expand button[type="roll"] {
+  background: #444;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+.sheet-roll-block button[type="roll"]:hover,
+.expand button[type="roll"]:hover {
+  background: #FFD700;
+  color: #1e1e1e;
+  transition: 0.2s ease-in-out;
+}
+
+.sheet-diepool-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 12px auto;
+  gap: 6px;
+}
+/* --- Center Header --- */
+.sheet-diepool-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+/* --- Hide checkbox --- */
+.sheet-diepool-toggle {
+  display: none;
+}
+/* --- Toggle Icon (▶ rotates when open) --- */
+.sheet-diepool-toggle-label {
+  cursor: pointer;
+}
+.sheet-diepool-icon {
+  display: inline-block;
+  color: #FFD700; /* Gold */
+  font-size: 1.1em;
+  transition: transform 0.2s ease;
+}
+/* When checkbox is checked, rotate the arrow down (▼) */
+input[name="attr_expandDP1RollTop"]:checked ~ .sheet-diepool-header .sheet-diepool-icon {
+  transform: rotate(90deg);
+}
+/* --- Roll Button Style --- */
+.sheet-diepool-wrapper button[type="roll"] {
+  background: #111;
+  color: #FFD700; /* Gold text */
+  border: 1px solid #800080; /* Purple border */
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+.sheet-diepool-wrapper button[type="roll"]:hover {
+  background: #800080; /* Purple background on hover */
+  color: #FFD700; /* Gold text on hover */
+}
+/* --- Gold label inside button --- */
+.sheet-diepool-wrapper span[name="attr_DP1Name"] {
+  color: #FFD700; /* Gold color */
+}
+/* --- Hidden config section --- */
+.sheet-diepool-wrapper .sheet-diepool-expand-section {
+  display: none; /* Initially hide the section */
+}
+.sheet-diepool-wrapper input[name="attr_expandDP1RollTop"]:checked ~ .sheet-diepool-expand-section {
+  display: flex; /* Show when checkbox is checked */
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+/* --- Select Styling --- */
+.sheet-diepool-wrapper select,
+.sheet-diepool-wrapper input[type="text"] {
+  background-color: #111;
+  color: #FFD700; /* Gold text */
+  border: 1px solid #800080; /* Purple border */
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-weight: bold;
+  font-family: "Segoe UI", sans-serif;
+  width: 200px;
+}
+
+/* Button Group Container */
+.sheet-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+/* Button Style: Black background, purple text */
+.sheet-button-group button[type="roll"] {
+  background-color: #111 !important;
+  color: #800080 !important; /* Purple text */
+  border: 1px solid #800080 !important; /* Purple border */
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: "Segoe UI", sans-serif;
+  cursor: pointer;
+  text-align: center;
+  min-width: 90px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect: invert to purple background with gold */
+.sheet-button-group button[type="roll"]:hover {
+  background-color: #FFD700 !important; /* Gold background on hover */
+  color: #800080 !important; /* Purple text on hover */
 }
