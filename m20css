@@ -2518,14 +2518,3 @@ div.sheet-footer > span
 	color: #FFF;
 	background-color: #4A57ED;
 }
-
-/* Theme Variables */
-.charsheet.lightmode {
-	--success-text: #004400;
-	--success-bg: #ffffff;
-}
-
-.charsheet.darkmode {
-	--success-text: #b6ffb6;
-	--success-bg: #1a1a1a;
-}
